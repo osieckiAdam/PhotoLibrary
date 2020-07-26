@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RemoteSiteSetting xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This is endpoint is used to collect data on a daily basis. This endpoint is a source of truth for Photo__c object stored in salesforce</description>
+    <disableProtocolSecurity>false</disableProtocolSecurity>
+    <isActive>true</isActive>
+    <url>https://jsonplaceholder.typicode.com</url>
+</RemoteSiteSetting>
