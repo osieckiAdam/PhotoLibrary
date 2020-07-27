@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This metadata contains mappings for fields used to synchronize Photo Data between external service and Salesforce. Only fields specified in this mapping will be synched.</description>
+    <label>Photo Data Field Mapping</label>
+    <pluralLabel>Photo Data Field Mappings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Salesforce_Field_Name__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>This field contains name of the field to map in Salesforce</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Please put the API name here (with __c appendix)</inlineHelpText>
+    <label>Salesforce Field Name</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>
