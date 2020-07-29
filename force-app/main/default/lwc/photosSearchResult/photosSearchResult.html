@@ -1,3 +1,37 @@
 <template>
-    
+    <lightning-card title="Search Results" icon-name="standard:output">
+
+        <div class="slds-card slds-p-around_x-small">
+            <template if:true={photos.data}>
+                <c-page-selector total-item-count={photos.data.totalItemCount} page-number={photos.data.pageNumber}
+                    page-size={photos.data.pageSize} onnext={handleNextPage} onprevious={handlePreviousPage}>
+                </c-page-selector>
+                <template if:true={photos.data.records.length}>
+
+                    <lightning-layout multiple-rows="true">
+                        <template for:each={photos.data.records} for:item="product">
+
+                            <div key={product.Id} class="slds-size_1-of-6 slds-var-p-around_xx-small">
+                                <div class={cssClass}>
+                                    <div class="slds-image__crop slds-image__crop--16-by-9">
+                                        <img src={product.Thumbnail_Url__c} alt={product.External_Id__c} />
+                                    </div>
+                                    <div class="slds-is-absolute slds-box overlay">
+                                        <h2 class="slds-text-align_center text">{product.Title_Trimmed__c}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </lightning-layout>
+                </template>
+
+                <c-page-selector total-item-count={photos.data.totalItemCount} page-number={photos.data.pageNumber}
+                    page-size={photos.data.pageSize} onnext={handleNextPage} onprevious={handlePreviousPage}>
+                </c-page-selector>
+                <c-search-mail-form onsendemail={handleSendEmail}></c-search-mail-form>
+            </template>
+        </div>
+
+    </lightning-card>
+
 </template>
