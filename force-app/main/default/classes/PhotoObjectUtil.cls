@@ -10,11 +10,23 @@ public with sharing class PhotoObjectUtil {
     public static Boolean areEqual(Photo__c firstPhoto, Photo__c secondPhoto) {
 
         for(Photo_Data_Field_Mapping__mdt pdfm : CustomMetadataSelector.getPhotoDataFieldMappingMetadata()) {
-            System.debug(LoggingLevel.ERROR, pdfm.Salesforce_Field_Name__c);
             if(firstPhoto.get(pdfm.Salesforce_Field_Name__c) != secondPhoto.get(pdfm.Salesforce_Field_Name__c)) {
                 return false;
             }
         }
         return true;
+    }
+
+    /**
+     * This method will return Photo__c object basing on the records fetched from the external system.able 
+     * All fields from Custom Metadata mapping will be parsed to SObject
+     */
+    public static Photo__c parseExternalRecordToPhoto(Map<String, Object> externalRecord) {
+        Photo__c parsedPhoto = new Photo__c();
+        for(Photo_Data_Field_Mapping__mdt pdfm : CustomMetadataSelector.getPhotoDataFieldMappingMetadata()) {
+            parsedPhoto.put(
+                pdfm.Salesforce_Field_Name__c, String.valueOf(externalRecord.get(pdfm.External_Field_Name__c)));
+        }
+        return parsedPhoto;
     }
 }
