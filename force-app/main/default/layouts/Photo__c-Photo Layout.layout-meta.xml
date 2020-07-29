@@ -30,6 +30,10 @@
                 <behavior>Edit</behavior>
                 <field>Thumbnail_Url__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Title_Trimmed__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
