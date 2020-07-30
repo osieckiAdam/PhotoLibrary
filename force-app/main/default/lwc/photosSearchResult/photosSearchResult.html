@@ -7,22 +7,11 @@
                     page-size={photos.data.pageSize} onnext={handleNextPage} onprevious={handlePreviousPage}>
                 </c-page-selector>
                 <template if:true={photos.data.records.length}>
-
-                    <lightning-layout multiple-rows="true">
+                    <div class="content">
                         <template for:each={photos.data.records} for:item="product">
-
-                            <div key={product.Id} class="slds-size_1-of-6 slds-var-p-around_xx-small">
-                                <div class={cssClass}>
-                                    <div class="slds-image__crop slds-image__crop--16-by-9">
-                                        <img src={product.Thumbnail_Url__c} alt={product.External_Id__c} />
-                                    </div>
-                                    <div class="slds-is-absolute slds-box overlay">
-                                        <h2 class="slds-text-align_center text">{product.Title_Trimmed__c}</h2>
-                                    </div>
-                                </div>
-                            </div>
+                            <c-photo-thumbnail-card photo={product} key={product.Id}></c-photo-thumbnail-card>
                         </template>
-                    </lightning-layout>
+                    </div>
                 </template>
 
                 <c-page-selector total-item-count={photos.data.totalItemCount} page-number={photos.data.pageNumber}

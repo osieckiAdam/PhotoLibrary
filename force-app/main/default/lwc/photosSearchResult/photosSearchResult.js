@@ -1,5 +1,5 @@
 import { LightningElement, wire, track, api } from 'lwc';
-import { subscribe, unsubscribe, MessageContext } from 'lightning/messageService';
+import { subscribe, MessageContext } from 'lightning/messageService';
 import SEARCHMC from '@salesforce/messageChannel/SearchStarted__c';
 import sendEmail from '@salesforce/apex/PhotoSearchController.sendEmail';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
@@ -29,14 +29,6 @@ export default class PhotosSearchResult extends LightningElement {
     @api muted;
     @api selected;
 
-    get cssClass() {
-        return (
-            'slds-box slds-box_xx-small es-tile' +
-            (this.muted ? ' muted' : '') +
-            (this.selected ? ' selected' : '')
-        );
-    }
-
     searchStartedsubscription;
 
     connectedCallback() {
@@ -54,8 +46,6 @@ export default class PhotosSearchResult extends LightningElement {
             pageSize: this.PAGESIZE,
             pageNumber: 1
         }
-        console.log('SEARCH STARTED, MESSAGE: ' + message.searchString);
-
     }
     handleNextPage() {
         this.PAGENUMBER++;

@@ -1,0 +1,21 @@
+.content {
+    padding: 8px;
+    width: 220px;
+    background-color: #ffffff;
+    border-radius: 0.25rem;
+}
+
+a {
+    color: inherit;
+}
+
+img.product {
+    height: 150px;
+    width: 150px;
+    pointer-events: none;
+}
+
+.title {
+    font-weight: bold;
+    text-transform: uppercase;
+}

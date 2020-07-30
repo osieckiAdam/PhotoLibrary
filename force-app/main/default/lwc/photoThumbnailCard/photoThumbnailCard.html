@@ -1,3 +1,12 @@
 <template>
-    
+
+    <a onclick={handleClick}>
+        <div class="content">
+            <img src={photo.Thumbnail_Url__c} class="product slds-align_absolute-center" alt={photo.External_Id__c} />
+            <div>
+                <p class="title slds-align_absolute-center">{photo.Title_Trimmed__c}</p>
+            </div>
+        </div>
+    </a>
+
 </template>

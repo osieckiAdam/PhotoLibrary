@@ -19,7 +19,7 @@ public with sharing class PhotoSearchController {
         );
 
         result.records = Database.query(
-            'SELECT Title__c, Title_Trimmed__c, Thumbnail_Url__c, External_Id__c FROM Photo__c ' + whereClause + ' WITH SECURITY_ENFORCED ORDER BY External_Id__c LIMIT :pageSize OFFSET :offset'
+            'SELECT Id, Title_Trimmed__c, Thumbnail_Url__c, External_Id__c FROM Photo__c ' + whereClause + ' WITH SECURITY_ENFORCED ORDER BY External_Id__c LIMIT :pageSize OFFSET :offset'
         );
         return result;
     }

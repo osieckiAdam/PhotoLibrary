@@ -8,6 +8,9 @@
         <componentInstances>
             <componentName>searchBar</componentName>
         </componentInstances>
+        <componentInstances>
+            <componentName>photoDetails</componentName>
+        </componentInstances>
         <name>region2</name>
         <type>Region</type>
     </flexiPageRegions>

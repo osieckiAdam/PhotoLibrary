@@ -1,0 +1,26 @@
+<template>
+    <lightning-card icon-name="standard:snippets">
+        <template if:false={photo}>
+            <span slot="title">
+                Select Record to see full size here
+            </span>
+
+        </template>
+        <template if:true={photo}>
+            <span slot="title" class="myHeader">
+                {title}
+            </span>
+            <lightning-layout horizontal-align="center" multiple-rows="true">
+                <lightning-layout-item horizontal-align="center" class="slds-p-around_medium" size="12">
+                    <img src={url} alt={titleTrimmed} />
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="horizontal-medium" size="12">
+                    Id: {externalId}
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="horizontal-medium" size="12">
+                    AlbumId: {albumId}
+                </lightning-layout-item>
+            </lightning-layout>
+        </template>
+    </lightning-card>
+</template>
