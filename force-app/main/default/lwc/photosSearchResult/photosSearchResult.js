@@ -2,6 +2,7 @@ import { LightningElement, wire, track, api } from 'lwc';
 import { subscribe, unsubscribe, MessageContext } from 'lightning/messageService';
 import SEARCHMC from '@salesforce/messageChannel/SearchStarted__c';
 import sendEmail from '@salesforce/apex/PhotoSearchController.sendEmail';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 import getPhotos from '@salesforce/apex/PhotoSearchController.getPhotos';
 
@@ -76,14 +77,26 @@ export default class PhotosSearchResult extends LightningElement {
 
     handleSendEmail(event) {
         sendEmail({
-            toAddress: event.mailAddress,
-            body: JSON.stringify(this.photos.data.records)
+            toAddress: event.detail,
+            body: JSON.stringify(this.photos.data.records, undefined, 4)
         })
-        // .then(() => {
-        //     console.log('Email sent successfully');
-        // })
-        // .catch((error) => {
-        //     console.log(error.body.message);
-        // });
+            .then(() => {
+                const event = new ShowToastEvent({
+                    title: 'Success',
+                    message: 'Your email was sent',
+                    variant: 'success',
+                    mode: 'dismissable'
+                });
+                this.dispatchEvent(event);
+            })
+            .catch((error) => {
+                const event = new ShowToastEvent({
+                    title: 'Error',
+                    message: error.body.message,
+                    variant: 'error',
+                    mode: 'sticky'
+                });
+                this.dispatchEvent(event);
+            });
     }
 }

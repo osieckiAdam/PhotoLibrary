@@ -1,15 +1,13 @@
 <template>
     <lightning-layout vertical-align="end" horizontal-align="end">
         <lightning-layout-item flexibility="auto" class="slds-var-p-horizontal_xx-small">
-            <div class="custom-box">
-                <lightning-button label="Send" onclick={handleSendEmail}></lightning-button>
-            </div>
+            <lightning-button label="Send Results by Email" onclick={handleSendEmail} disabled={isButtonDisabled}
+                variant="brand">
+            </lightning-button>
         </lightning-layout-item>
         <lightning-layout-item flexibility="auto" class="slds-var-p-horizontal_xx-small">
-            <div class="custom-box">
-                <lightning-input type="email" value={emailAddress} onchange={handleInputChange}>
-                </lightning-input>
-            </div>
+            <lightning-input class="cb" type="email" value={emailAddress} onchange={handleInputChange}>
+            </lightning-input>
         </lightning-layout-item>
     </lightning-layout>
 </template>
