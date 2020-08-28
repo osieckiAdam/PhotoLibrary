@@ -1,4 +1,4 @@
-# PhotoLibrary Lightning Web Components Sample Application for Recruitment process
+# PhotoLibrary Lightning Web Components Sample Application
 
 Formal requirements for this application were following: 
 To build an image search app:
